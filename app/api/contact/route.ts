@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
   const { error } = await resend.emails.send({
     from: 'Nexus AI Group <hello@nexusaigroup.com>',
     to: 'ljcrandell@gmail.com',
-    replyTo: email,
+    reply_to: email,
     subject: `New message from ${name}`,
     text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
     html: `
