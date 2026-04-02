@@ -18,7 +18,7 @@ export default function Hero() {
       />
 
       {/* Mobile background network — decorative, behind text */}
-      <div className="md:hidden absolute inset-0 flex items-center justify-center opacity-[0.12] pointer-events-none">
+      <div className="md:hidden absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none">
         <div className="w-full aspect-square">
           <NeuralNetwork />
         </div>
