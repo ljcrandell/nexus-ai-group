@@ -11,16 +11,14 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center">
-          <div className="bg-white rounded-lg px-3 py-1.5">
-            <Image
-              src="/logo.png"
-              alt="Nexus AI Group"
-              width={160}
-              height={62}
-              className="h-8 w-auto"
-              priority
-            />
-          </div>
+          <Image
+            src="/logo.png"
+            alt="Nexus AI Group"
+            width={160}
+            height={62}
+            className="h-10 w-auto"
+            priority
+          />
         </Link>
 
         {/* Desktop Nav */}
