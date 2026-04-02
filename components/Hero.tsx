@@ -1,9 +1,11 @@
+import NeuralNetwork from './NeuralNetwork'
+
 export default function Hero() {
   return (
     <section className="min-h-screen bg-[#0B1120] flex items-center relative overflow-hidden">
       {/* Glow effects */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(0,174,239,0.15)_0%,transparent_60%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(0,174,239,0.08)_0%,transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(0,174,239,0.12)_0%,transparent_60%)]" />
 
       {/* Subtle grid */}
       <div
@@ -15,42 +17,54 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative max-w-6xl mx-auto px-6 pt-28 pb-24">
-        <div className="max-w-3xl">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-[#00AEEF]/10 border border-[#00AEEF]/30 rounded-full px-4 py-1.5 mb-8">
-            <span className="w-2 h-2 rounded-full bg-[#00AEEF] animate-pulse" />
-            <span className="text-[#00AEEF] text-sm font-medium">AI Consulting &amp; Solutions</span>
+      <div className="relative max-w-6xl mx-auto px-6 pt-28 pb-24 w-full">
+        <div className="grid md:grid-cols-2 gap-8 items-center">
+
+          {/* Left: Text */}
+          <div>
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 bg-[#00AEEF]/10 border border-[#00AEEF]/30 rounded-full px-4 py-1.5 mb-8">
+              <span className="w-2 h-2 rounded-full bg-[#00AEEF] animate-pulse" />
+              <span className="text-[#00AEEF] text-sm font-medium">AI Consulting &amp; Solutions</span>
+            </div>
+
+            {/* Headline */}
+            <h1 className="text-5xl md:text-6xl font-bold text-white leading-[1.05] mb-6">
+              We Connect{' '}
+              <span className="text-[#00AEEF]">AI</span>{' '}
+              to Your Business
+            </h1>
+
+            {/* Subheading */}
+            <p className="text-lg text-gray-400 leading-relaxed mb-10">
+              Nexus AI Group helps companies integrate artificial intelligence into their workflows —
+              from strategic consulting to custom websites and AI voice agents.
+            </p>
+
+            {/* CTAs */}
+            <div className="flex flex-wrap gap-4">
+              <a
+                href="#contact"
+                className="bg-[#00AEEF] hover:bg-[#0096cc] text-white font-semibold px-8 py-4 rounded-full text-lg transition-all hover:scale-105 shadow-[0_0_30px_rgba(0,174,239,0.35)]"
+              >
+                Book a Call
+              </a>
+              <a
+                href="#services"
+                className="border border-white/20 hover:border-[#00AEEF]/60 text-white font-semibold px-8 py-4 rounded-full text-lg transition-all hover:bg-white/5"
+              >
+                Our Services
+              </a>
+            </div>
           </div>
 
-          {/* Headline */}
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6">
-            We Connect{' '}
-            <span className="text-[#00AEEF]">AI</span>{' '}
-            to Your Business
-          </h1>
-
-          {/* Subheading */}
-          <p className="text-xl text-gray-400 leading-relaxed mb-10 max-w-2xl">
-            Nexus AI Group helps companies integrate artificial intelligence into their workflows —
-            from strategic consulting to custom websites and AI voice agents.
-          </p>
-
-          {/* CTAs */}
-          <div className="flex flex-wrap gap-4">
-            <a
-              href="#contact"
-              className="bg-[#00AEEF] hover:bg-[#0096cc] text-white font-semibold px-8 py-4 rounded-full text-lg transition-all hover:scale-105 shadow-[0_0_30px_rgba(0,174,239,0.35)]"
-            >
-              Book a Call
-            </a>
-            <a
-              href="#services"
-              className="border border-white/20 hover:border-[#00AEEF]/60 text-white font-semibold px-8 py-4 rounded-full text-lg transition-all hover:bg-white/5"
-            >
-              Our Services
-            </a>
+          {/* Right: Animated Neural Network */}
+          <div className="hidden md:flex items-center justify-center">
+            <div className="w-full max-w-lg aspect-square opacity-85">
+              <NeuralNetwork />
+            </div>
           </div>
+
         </div>
       </div>
 
