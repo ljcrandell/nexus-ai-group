@@ -17,6 +17,13 @@ export default function Hero() {
         }}
       />
 
+      {/* Mobile background network — decorative, behind text */}
+      <div className="md:hidden absolute inset-0 flex items-center justify-center opacity-[0.12] pointer-events-none">
+        <div className="w-full aspect-square">
+          <NeuralNetwork />
+        </div>
+      </div>
+
       <div className="relative max-w-6xl mx-auto px-6 pt-28 pb-24 w-full">
         <div className="grid md:grid-cols-2 gap-8 items-center">
 
@@ -58,7 +65,7 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right: Animated Neural Network */}
+          {/* Right: Animated Neural Network — desktop only */}
           <div className="hidden md:flex items-center justify-center">
             <div className="w-full max-w-lg aspect-square opacity-85">
               <NeuralNetwork />
