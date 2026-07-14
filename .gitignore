@@ -12,3 +12,7 @@ yarn-error.log*
 .vercel
 *.tsbuildinfo
 next-env.d.ts
+
+# Internal notes — pricing and client strategy. Repo is public; keep these out.
+CLAUDE.md
+.claude/

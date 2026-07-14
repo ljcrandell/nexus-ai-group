@@ -1,7 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { Resend } from 'resend'
+import nodemailer from 'nodemailer'
 
-export const dynamic = 'force-dynamic'
+const transporter = nodemailer.createTransport({
+  host: 'smtp.improvmx.com',
+  port: 465,
+  secure: true,
+  auth: {
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
+  },
+})
 
 export async function POST(req: NextRequest) {
   const { name, email, message } = await req.json()
@@ -10,27 +18,17 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Missing fields' }, { status: 400 })
   }
 
-  const resend = new Resend(process.env.RESEND_API_KEY)
-
-  const { error } = await resend.emails.send({
-    from: 'Nexus AI Group <hello@nexusaigroup.com>',
-    to: 'ljcrandell@gmail.com',
-    reply_to: email,
-    subject: `New message from ${name}`,
-    text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
-    html: `
-      <div style="font-family: sans-serif; max-width: 600px;">
-        <h2 style="color: #00AEEF;">New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
-        <hr style="border: 1px solid #eee;" />
-        <p style="white-space: pre-wrap;">${message}</p>
-      </div>
-    `,
-  })
-
-  if (error) {
-    console.error('Resend error:', error)
+  try {
+    await transporter.sendMail({
+      from: process.env.SMTP_USER,
+      to: 'ljcrandell@gmail.com',
+      replyTo: email,
+      subject: `New contact from ${name}`,
+      text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
+    })
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : String(err)
+    console.error('Email send failed:', message)
     return NextResponse.json({ error: 'Failed to send message' }, { status: 500 })
   }
 

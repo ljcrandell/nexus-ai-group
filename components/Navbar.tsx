@@ -16,7 +16,7 @@ export default function Navbar() {
             alt="Nexus AI Group"
             width={160}
             height={62}
-            className="h-10 w-auto"
+            className="h-8 w-auto"
             priority
           />
         </Link>

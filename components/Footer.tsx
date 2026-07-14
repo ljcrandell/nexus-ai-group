@@ -5,6 +5,7 @@ export default function Footer() {
     <footer className="bg-[#0B1120] text-gray-400 py-12">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          {/* Brand */}
           <div className="flex items-center gap-3 flex-wrap justify-center md:justify-start">
             <span className="text-white font-semibold text-lg">
               Nexus <span className="text-[#00AEEF]">AI Group</span>
@@ -13,6 +14,7 @@ export default function Footer() {
             <span className="text-sm text-gray-500 italic">Connecting Intelligence.</span>
           </div>
 
+          {/* Nav links */}
           <div className="flex items-center gap-6 text-sm">
             <Link href="#services" className="hover:text-white transition-colors">
               Services
